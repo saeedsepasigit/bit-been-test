@@ -1,38 +1,37 @@
-.App {
-  text-align: center;
+
+@font-face {
+  font-family: Iran-Sanse;
+  src: url("../public/fonts/FontsFree-Net-ir_sans.ttf");
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+:root > *{
+  font-family: Iran-Sanse;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+:root > body{
+  background-color: lightgray;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+a.btn-link{
+  text-decoration: none;
+  color: lightslategray;
+  font-weight: bold;
+  transition: all ease 1s;
 }
 
-.App-link {
-  color: #61dafb;
+a.btn-link:hover{
+  color: rgb(3, 152, 201);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+p.lead{
+  font-size: 14px;
+}
+
+.card .card-header img{
+  transition: transform ease 0.3s;
+  cursor: pointer;
+}
+
+.card:hover .card-header img{
+   transform: scale(1.1);
 }

@@ -1,24 +1,26 @@
 import logo from './logo.svg';
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom"
 import './App.css';
+import { Fragment } from 'react';
+import Markets from './components/Markets/Markets';
+import Navigation from './components/Navigation/Navigation';
+
+import "bootstrap/dist/css/bootstrap.min.css"
+import { Container } from 'react-bootstrap';
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Fragment>
+      <BrowserRouter>
+        <Navigation />
+        <Container dir='rtl' className='mt-2 p-1'>
+          <Routes>
+            <Route path='/' element={<Markets />} />
+          </Routes>
+        </Container>
+      </BrowserRouter>
+    </Fragment>
   );
 }
 
