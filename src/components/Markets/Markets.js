@@ -35,7 +35,7 @@ export default function Markets() {
                 {Object.keys(markets).length > 0 && markets.results.map((el, index) => {
                     return (
                         <Fragment>
-                            <Col>
+                            <Col lg={3}>
                                 <Card el={el} key={index} />
                             </Col>
                         </Fragment>

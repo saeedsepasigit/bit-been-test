@@ -1,16 +1,42 @@
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { Fragment } from "react";
-import { Image, Card as BootstrapCard } from "react-bootstrap"
+import { Image, Card as BootstrapCard, Badge, Row, Col, Tooltip, Toast,Button} from "react-bootstrap"
+import { faAngleDown, faAngleUp, faHeart, faStaffAesculapius, faStar } from "@fortawesome/free-solid-svg-icons"
+import { Link } from "react-router-dom";
 
+
+function Change({ el }) {
+
+
+    if (parseFloat(el.price_info.change) >= 0) {
+        return (
+            <>
+                <b><small className="text-success">{el.price_info.change} <FontAwesomeIcon icon={faAngleUp} /> </small></b>
+            </>
+        )
+    } else {
+        return (
+            <>
+                <b><small className="text-danger">{el.price_info.change} <FontAwesomeIcon icon={faAngleDown} /></small></b>
+            </>
+        )
+    }
+}
 
 export default function Card({ el }) {
 
 
 
+    const addToFaverates = el => {
+        console.log(el)
+    }
 
     return (
         <Fragment>
             <BootstrapCard className="m-2" >
-                <BootstrapCard.Header>
+                <BootstrapCard.Header style={{
+                    background : `#${el.currency1.color}`,
+                }}>
                     <div className="text-center">
                         <img src={el.currency1.image} width={100} height={"auto"} />
                     </div>
@@ -20,12 +46,38 @@ export default function Card({ el }) {
                 </BootstrapCard.Header>
                 <BootstrapCard.Body>
                     <header className="text-center">
-                        <p className="lead">
-                            <small><b>{el.title_fa}</b></small>
-                        </p>
-                        <p className="lead">
-                            <small>{el.title}</small>
-                        </p>
+                        <div>
+                            <p className="lead">
+                                <small><b>{el.title_fa}</b></small>
+                            </p>
+                        </div>
+                        <div>
+                            <p className="lead">
+                                <small>{el.title}</small>
+                            </p>
+                        </div>
+                        <div>
+                            <p>
+                               <b className="text-faverate" onClick={()=> addToFaverates(el) }><FontAwesomeIcon icon={faStar} /></b>
+                            </p>
+                        </div>
+                        <Row>
+                            <Col>
+                                <div className="text-center" dir="ltr">
+                                    <Change el={el} />
+                                </div>
+                            </Col>
+                            <Col>
+                                <div className="text-center" dir="rtl">
+                                    <p>
+                                        <small><b>{el.currency2.decimal_irt === 0 ? `${el.price_info.price} دلار` : `${el.price_info.price} تومان`} </b></small>
+                                    </p>
+                                </div>
+                            </Col>
+                        </Row>
+                        <div className="text-center ">
+                            <Link to="/" className="btn btn-primary btn-sm">معامله</Link>
+                        </div>
                     </header>
                 </BootstrapCard.Body>
             </BootstrapCard>

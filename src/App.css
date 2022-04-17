@@ -23,8 +23,29 @@ a.btn-link:hover{
   color: rgb(3, 152, 201);
 }
 
+a.btn-primary{
+  width: 100%;
+  border-radius: 20px;
+}
+
+.text-faverate{
+  color: rgb(209, 209, 209);
+  transition: transform ease 0.5s;
+  cursor: pointer;
+}
+.text-faverate:hover{
+  transform: scale(1.1);
+  color: goldenrod;
+}
+
+
 p.lead{
   font-size: 14px;
+}
+
+
+.card{
+  border: none;
 }
 
 .card .card-header img{
@@ -33,5 +54,5 @@ p.lead{
 }
 
 .card:hover .card-header img{
-   transform: scale(1.1);
+   transform: scale(1.3);
 }
