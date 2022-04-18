@@ -4,12 +4,52 @@
   src: url("../public/fonts/FontsFree-Net-ir_sans.ttf");
 }
 
+
+html,body{
+  scroll-behavior: smooth;
+}
+
 :root > *{
   font-family: Iran-Sanse;
 }
 
 :root > body{
   background-color: lightgray;
+}
+
+.next,.prev{
+  position: fixed;
+  color: rgb(97, 97, 97);
+  font-weight: bolder;
+  background-color: rgb(233, 233, 233);
+  font-size: 22px;
+  transition: transform ease 0.3s; 
+}
+
+.next{
+  padding: 20px;
+  left: 0;
+  top: 50%;
+  border-radius: 0 10px 10px 0;
+}
+
+.prev{
+  padding: 20px;
+  right: 0;
+  top: 50%;
+  border-radius: 10px 0  0 10px;
+}
+
+.prev:hover{
+  transform: scale(1.1);
+  background-color: rgb(215, 217, 219);
+  color: #000;
+}
+
+.next:hover{
+  transform: scale(1.1);
+  background-color: rgb(215, 217, 219);
+  color: #000;
 }
 
 a.btn-link{
@@ -28,12 +68,12 @@ a.btn-primary{
   border-radius: 20px;
 }
 
-.text-faverate{
+.btn-faverate,.text-faverate{
   color: rgb(209, 209, 209);
   transition: transform ease 0.5s;
   cursor: pointer;
 }
-.text-faverate:hover{
+.btn-faverate:hover > *{
   transform: scale(1.1);
   color: goldenrod;
 }

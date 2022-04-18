@@ -13,12 +13,14 @@ function App() {
   return (
     <Fragment>
       <BrowserRouter>
-        <Navigation />
-        <Container dir='rtl' className='mt-2 p-1'>
-          <Routes>
-            <Route path='/' element={<Markets />} />
-          </Routes>
-        </Container>
+        <div className='root'>
+          <Navigation />
+          <Container dir='rtl' className='mt-2 p-1'>
+            <Routes>
+              <Route path='/' element={<Markets />} />
+            </Routes>
+          </Container>
+        </div>
       </BrowserRouter>
     </Fragment>
   );

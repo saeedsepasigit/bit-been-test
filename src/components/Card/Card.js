@@ -1,7 +1,7 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React, { Fragment } from "react";
-import { Image, Card as BootstrapCard, Badge, Row, Col, Tooltip, Toast,Button} from "react-bootstrap"
-import { faAngleDown, faAngleUp, faHeart, faStaffAesculapius, faStar } from "@fortawesome/free-solid-svg-icons"
+import React, { Fragment} from "react";
+import {Card as BootstrapCard, Row, Col,Button } from "react-bootstrap"
+import { faAngleDown, faAngleUp,faStar } from "@fortawesome/free-solid-svg-icons"
 import { Link } from "react-router-dom";
 
 
@@ -10,32 +10,23 @@ function Change({ el }) {
 
     if (parseFloat(el.price_info.change) >= 0) {
         return (
-            <>
-                <b><small className="text-success">{el.price_info.change} <FontAwesomeIcon icon={faAngleUp} /> </small></b>
-            </>
+            <b><small className="text-success">{el.price_info.change} <FontAwesomeIcon icon={faAngleUp} /> </small></b>
         )
     } else {
         return (
-            <>
-                <b><small className="text-danger">{el.price_info.change} <FontAwesomeIcon icon={faAngleDown} /></small></b>
-            </>
+            <b><small className="text-danger">{el.price_info.change} <FontAwesomeIcon icon={faAngleDown} /></small></b>
         )
     }
 }
 
-export default function Card({ el }) {
+export default function Card({ el, fevrateCards }) {
 
-
-
-    const addToFaverates = el => {
-        console.log(el)
-    }
 
     return (
         <Fragment>
             <BootstrapCard className="m-2" >
                 <BootstrapCard.Header style={{
-                    background : `#${el.currency1.color}`,
+                    background: `#${el.currency1.color}`,
                 }}>
                     <div className="text-center">
                         <img src={el.currency1.image} width={100} height={"auto"} />
@@ -58,7 +49,14 @@ export default function Card({ el }) {
                         </div>
                         <div>
                             <p>
-                               <b className="text-faverate" onClick={()=> addToFaverates(el) }><FontAwesomeIcon icon={faStar} /></b>
+                                <Button variant="link" size="sm" onClick={() => {
+                                    fevrateCards(el)
+                                    el.faverate = true
+                                }} className="btn-faverate">
+                                    {!el.faverate ? (
+                                        <b className="text-faverate" ><FontAwesomeIcon icon={faStar} /></b>
+                                    ) : (<b className="text-danger" ><FontAwesomeIcon icon={faStar} /></b>)}
+                                </Button>
                             </p>
                         </div>
                         <Row>
