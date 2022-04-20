@@ -12,7 +12,6 @@ export default function Market() {
     const { el } = state
     const [chartData, setChartData] = useState({})
     const [url, setUrl] = useState(`https://api.bitpin.ir/v1/mkt/markets/charts/`)
-    let data = []
 
     useEffect(() => {
         axios.get(url).then(response => {
