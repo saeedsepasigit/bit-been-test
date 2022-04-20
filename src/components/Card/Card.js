@@ -2,7 +2,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { Fragment} from "react";
 import {Card as BootstrapCard, Row, Col,Button } from "react-bootstrap"
 import { faAngleDown, faAngleUp,faStar } from "@fortawesome/free-solid-svg-icons"
-import { Link } from "react-router-dom";
+import {Link, useHistory, useLocation, useNavigate} from "react-router-dom";
 
 
 function Change({ el }) {
@@ -19,8 +19,7 @@ function Change({ el }) {
     }
 }
 
-export default function Card({ el, fevrateCards }) {
-
+export default function Card({ el, fevrateCards}) {
 
     return (
         <Fragment>
@@ -74,7 +73,9 @@ export default function Card({ el, fevrateCards }) {
                             </Col>
                         </Row>
                         <div className="text-center ">
-                            <Link to="/" className="btn btn-primary btn-sm">معامله</Link>
+                            <Link className="btn btn-primary btn-sm" to={"/market"} state={{
+                                el
+                            }}>معامله</Link>
                         </div>
                     </header>
                 </BootstrapCard.Body>

@@ -1,8 +1,8 @@
 import axios from "axios";
-import React, { Fragment, useEffect, useRef, useState } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 import { useAlert } from "react-alert";
-import { Button, Col, Container, Row, Spinner } from "react-bootstrap";
-import { Cookies, useCookies } from "react-cookie";
+import { Button, Col, Row, Spinner } from "react-bootstrap";
+import { useCookies } from "react-cookie";
 import Card from "../Card/Card";
 import { confirmAlert } from "react-confirm-alert"
 
@@ -13,9 +13,8 @@ import { faAngleLeft, faAngleRight } from "@fortawesome/free-solid-svg-icons";
 
 export default function Markets() {
 
-    
-    const [url,setUrl] = useState("https://api.bitpin.ir/v1/mkt/markets/")
 
+    const [url, setUrl] = useState("https://api.bitpin.ir/v1/mkt/markets/")
     const [markets, setMarkets] = useState({})
     const [faverate, setFaverate] = useState(false)
     const [cookies, setCookies, removeCookies] = useCookies();
@@ -25,8 +24,7 @@ export default function Markets() {
 
     useEffect(() => {
         getApiData()
-
-    }, [faverate,url])
+    }, [faverate, url])
 
 
 
@@ -65,7 +63,9 @@ export default function Markets() {
                 willUnmount: () => { },
                 closeOnClickOutside: () => { }
             })
+
         } else {
+            
             let now = new Date()
             let time = now.getTime()
             let expiredTime = parseFloat(time + 1000 * 36000)
@@ -102,20 +102,20 @@ export default function Markets() {
     }
 
 
-    const prevePage = e =>{
-        if(markets.previous !== null){
+    const prevePage = e => {
+        if (markets.previous !== null) {
             setUrl(markets.previous)
-        }else{
-           e.preventDefault()
+        } else {
+            e.preventDefault()
         }
-        window.scrollTo(0,0)
+        window.scrollTo(0, 0)
     }
 
-    const nextPage = e =>{
-        if(markets.next !== null){
+    const nextPage = e => {
+        if (markets.next !== null) {
             setUrl(markets.next)
-            window.scrollTo(0,0)
-        }else{
+            window.scrollTo(0, 0)
+        } else {
             e.preventDefault()
         }
     }
@@ -124,15 +124,15 @@ export default function Markets() {
         <Fragment>
             {storedCookies.length > 0 ? (
                 <Fragment>
-                    <div>
-                        <header className="text-center p-1 border-bottom">
+                    <div className="faverats-markets">
+                        {/* <header className="text-center p-5">
                             <h6><b>مارکت های مورد علاقه</b></h6>
-                        </header>
+                        </header> */}
                         <Row>
                             {storedCookies.length > 0 && storedCookies.map(el => {
                                 return (
                                     <Fragment>
-                                        <Col lg={2}>
+                                        <Col lg={3}>
                                             <Card el={el} key={el.code} fevrateCards={el => getFeverateCards(el)} />
                                         </Col>
                                     </Fragment>
@@ -142,29 +142,31 @@ export default function Markets() {
                     </div>
                 </Fragment>
             ) : ''}
-            <header className="text-center p-1 border-bottom mt-3 mb-3">
+            {/* <header className="text-center p-1 border-bottom mt-3 mb-3">
                 <h6><b>لیست مارکت ها</b></h6>
-            </header>
-            <Row>
-                {Object.keys(markets).length > 0 && markets.results.map((el, index) => {
-                    return (
-                        <Fragment>
-                            <Col lg={3}>
-                                <Card el={el} key={el.code} fevrateCards={el => getFeverateCards(el)} />
-                            </Col>
-                        </Fragment>
-                    )
-                })}
-            </Row>
+            </header> */}
+            <div className="market-list mt-5">
+                <Row>
+                    {Object.keys(markets).length > 0 && markets.results.map((el, index) => {
+                        return (
+                            <Fragment>
+                                <Col lg={3}>
+                                    <Card el={el} key={el.code} fevrateCards={el => getFeverateCards(el)} />
+                                </Col>
+                            </Fragment>
+                        )
+                    })}
+                </Row>
 
-            <div className="pagination">
-                <a href="javascript:void(0)" className="prev" onClick={e => prevePage(e) }>
-                    <FontAwesomeIcon icon={faAngleRight} />
-                </a>
+                <div className="pagination">
+                    <a href="javascript:void(0)" className="prev" onClick={e => prevePage(e)}>
+                        <FontAwesomeIcon icon={faAngleRight} />
+                    </a>
 
-                <a href="javascript:void(0)" className="next" onClick={e => nextPage(e)}>
-                    <FontAwesomeIcon icon={faAngleLeft} />
-                </a>
+                    <a href="javascript:void(0)" className="next" onClick={e => nextPage(e)}>
+                        <FontAwesomeIcon icon={faAngleLeft} />
+                    </a>
+                </div>
             </div>
         </Fragment>
     )
@@ -179,7 +181,16 @@ export default function Markets() {
 
 
     if (Object.keys(markets).length > 0) {
-        return render
+        return (
+            <Fragment>
+                <header className="text-center p-5 border-bottom">
+                    <h6><b>لیست مارکت ها</b></h6>
+                </header>
+                <Fragment>
+                    {render}
+                </Fragment>
+            </Fragment>
+        )
     } else {
         return spinner
     }

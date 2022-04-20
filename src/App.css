@@ -96,3 +96,17 @@ p.lead{
 .card:hover .card-header img{
    transform: scale(1.3);
 }
+
+.chart {
+  border-radius: 12px;
+}
+
+.exchange-box{
+  border-radius: 12px;
+  padding: 10px;
+}
+
+.chart-container{
+  width: 540px;
+  height: auto;
+}

@@ -18,7 +18,7 @@ export default function Navigation() {
                                 <Link className="btn btn-link" to={"/"}>خانه</Link>
                             </Nav.Link>
                             <Nav.Link>
-                                <Link className="btn btn-link" to={"/markets/faverates"}>مورد علاقه</Link>
+                                <Link className="btn btn-link" to={"/faverates"}>مورد علاقه</Link>
                             </Nav.Link>
                         </Nav>
                     </Navbar.Collapse>
