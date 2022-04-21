@@ -173,8 +173,8 @@ export default function Markets() {
 
     const spinner = (
         <Fragment>
-            <div className="text-center pt-2">
-                <Spinner animation="grow" />
+            <div className="text-center spinner pt-2">
+                <Spinner animation="border" />
             </div>
         </Fragment>
     )

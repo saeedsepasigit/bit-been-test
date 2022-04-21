@@ -56,11 +56,26 @@ a.btn-link{
   text-decoration: none;
   color: lightslategray;
   font-weight: bold;
+  transition: all ease 0.3s;
+  font-size: 16px;
+}
+
+a.active{
+  background-color: lightseagreen;
+  color: #000;
+  font-weight: bold;
   transition: all ease 1s;
+  font-size: 16px;
+  text-decoration: none;
 }
 
 a.btn-link:hover{
-  color: rgb(3, 152, 201);
+  background-color: lightseagreen;
+  color: #000;
+  font-weight: bold;
+  transition: all ease 1s;
+  font-size: 16px;
+  text-decoration: none;
 }
 
 a.btn-primary{
@@ -109,4 +124,20 @@ p.lead{
 .chart-container{
   width: 540px;
   height: auto;
+}
+
+.spinner{
+  display: flex;
+  min-height: 480px;
+  text-align: center;
+}
+
+.spinner > *{
+    margin: auto;
+}
+
+.navbar-brand{
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-weight: bold;
+  padding: 10px;
 }
