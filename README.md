@@ -6,7 +6,6 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
     git clone https://github.com/zanko-khaledi/bit-been-test.git
 
 # Install dependencies 
-   First remove package-lock.json then type:
     npm isntall
 
 # Runing the server eg :
