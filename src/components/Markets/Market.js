@@ -115,7 +115,6 @@ export default function Market() {
                 })
             }
         })
-        console.log(el)
     }, [url])
 
 

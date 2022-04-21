@@ -7,7 +7,6 @@ import {Link} from "react-router-dom";
 
 function Change({ el }) {
 
-
     if (parseFloat(el.price_info.change) >= 0) {
         return (
             <b><small className="text-success">{el.price_info.change} <FontAwesomeIcon icon={faAngleUp} /> </small></b>

@@ -92,12 +92,7 @@ export default function Markets() {
         axios.get(url).then(response => {
             if (response.status === 200) {
                 setMarkets({ ...response.data })
-                console.log(response.data)
-            } else {
-                setMarkets({})
             }
-        }).catch(error => {
-            console.error("Axios error => ", error.response.data.message)
         })
     }
 
