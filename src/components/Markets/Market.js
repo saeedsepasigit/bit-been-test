@@ -125,8 +125,8 @@ export default function Market() {
         <>
             <div dir="rtl">
                 <Row>
-                    <Col lg={6}>
-                        <div className="bg-white exchange-box">
+                    <Col lg={5}>
+                        <div className="bg-white exchange-box m-1 p-3">
                             <header>
                                 <div className="text-center">
                                     <img src={el.currency1.image} width={100} height={"auto"} />
@@ -138,7 +138,7 @@ export default function Market() {
                                 <h6>{el.title}</h6>
                                 {/* <h6>{new Date(el.price_info.created_at).toLocaleTimeString()}</h6> */}
                             </header>
-                            <main>
+                            <main className="m-auto">
                                 <Row>
                                     <Col>
                                         <Change param={el} />
@@ -148,15 +148,17 @@ export default function Market() {
                                     </Col>
                                 </Row>
                                 <Row>
-                                    <Col lg={6}>
+                                    <Col>
                                         <Transactions param={el} />
                                     </Col>
                                 </Row>
                             </main>
                         </div>
                     </Col>
-                    <Col lg={6}>
-                        <div className="bg-white text-center p-5 chart">
+                    <Col lg={7}>
+                        <div className="bg-white text-center p-5 chart m-1" style={{
+                            display: "flex",
+                        }}>
                             <ChartDiagram chartData={chartData} />
                         </div>
                     </Col>
