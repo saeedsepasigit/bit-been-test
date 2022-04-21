@@ -28,7 +28,7 @@ export default function Markets() {
 
 
 
-    let getFeverateCards = el => {
+    const getFeverateCards = el => {
 
         if (storedCookies.includes(el)) {
             confirmAlert({
@@ -129,11 +129,11 @@ export default function Markets() {
                             <h6><b>مارکت های مورد علاقه</b></h6>
                         </header> */}
                         <Row>
-                            {storedCookies.length > 0 && storedCookies.map(el => {
+                            {storedCookies.length > 0 && storedCookies.map((el,index)=> {
                                 return (
                                     <Fragment>
                                         <Col lg={3}>
-                                            <Card el={el} key={el.code} fevrateCards={el => getFeverateCards(el)} />
+                                            <Card el={el} key={`${el.title} + ${index}`} fevrateCards={el => getFeverateCards(el)} />
                                         </Col>
                                     </Fragment>
                                 )
@@ -151,7 +151,7 @@ export default function Markets() {
                         return (
                             <Fragment>
                                 <Col lg={3}>
-                                    <Card el={el} key={el.code} fevrateCards={el => getFeverateCards(el)} />
+                                    <Card el={el} key={`${el.title} + ${index}`} fevrateCards={el => getFeverateCards(el)} />
                                 </Col>
                             </Fragment>
                         )
@@ -159,11 +159,11 @@ export default function Markets() {
                 </Row>
 
                 <div className="pagination">
-                    <a href="javascript:void(0)" className="prev" onClick={e => prevePage(e)}>
+                    <a type="button" className="prev" onClick={e => prevePage(e)}>
                         <FontAwesomeIcon icon={faAngleRight} />
                     </a>
 
-                    <a href="javascript:void(0)" className="next" onClick={e => nextPage(e)}>
+                    <a type="button" className="next" onClick={e => nextPage(e)}>
                         <FontAwesomeIcon icon={faAngleLeft} />
                     </a>
                 </div>
