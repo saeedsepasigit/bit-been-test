@@ -1,8 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { CartesianGrid, Legend, Line, LineChart, ResponsiveContainer, Tooltip, XAxis, YAxis } from "recharts";
-import moment from "moment"
-
-
+import { CartesianGrid, Legend, Line, LineChart, Tooltip, XAxis, YAxis } from "recharts";
 
 export default function ChartDiagram({ chartData }) {
 
@@ -12,7 +9,7 @@ export default function ChartDiagram({ chartData }) {
     useEffect(() => {
         if (Object.keys(chartData).length > 0) {
             let array = []
-            let startOffset = 140
+            let startOffset = 5
             let numberOfElements = parseInt(chartData.chart.length - startOffset)
             array = chartData.chart.splice(startOffset, numberOfElements).map(element => {
                 return {
@@ -48,5 +45,7 @@ export default function ChartDiagram({ chartData }) {
         </>
     )
 
-    return render
+    if(Object.keys(chartData).length > 0){
+        return render
+    }
 }
