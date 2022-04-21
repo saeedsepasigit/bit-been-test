@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Table } from "react-bootstrap";
 import { CartesianGrid, Legend, Line, LineChart, Tooltip, XAxis, YAxis, ResponsiveContainer } from "recharts";
 
 export default function ChartDiagram({ chartData }) {
@@ -24,27 +25,29 @@ export default function ChartDiagram({ chartData }) {
 
     const render = (
         <>
-            <div style={{
-                width: "auto",
-                display: "flex",
-                margin: "auto",
-                textAlign: "center"
-            }}>
-                <ResponsiveContainer width={710} height={270} margin={{
-                    top: 0, right: 0, left: 20
-                }} >
-                    <LineChart data={data}
-                    >
-                        <CartesianGrid strokeDasharray={"3 3"} />
-                        <XAxis dataKey={"time"} />
-                        <YAxis dataKey={"price"} />
-                        <Tooltip />
-                        <Legend />
-                        <Line type={"monotone"} dataKey={"price"} stroke="#8884d8" />
-                        <Line type={"monotone"} dataKey={"time"} stroke="#82ca9d" />
-                    </LineChart>
-                </ResponsiveContainer>
-            </div>
+            <Table responsive dir="rtl">
+                <tr>
+                    <td>
+                        <div style={{
+                            display : "flex"
+                        }}>
+                            <ResponsiveContainer width={680} height={270} >
+                                <LineChart data={data} margin={{
+                                    left : 0
+                                }}>
+                                    <CartesianGrid strokeDasharray={"3 3"} />
+                                    <XAxis dataKey={"time"} />
+                                    <YAxis dataKey={"price"} />
+                                    <Tooltip />
+                                    <Legend />
+                                    <Line type={"monotone"} dataKey={"price"} stroke="#8884d8" />
+                                    <Line type={"monotone"} dataKey={"time"} stroke="#82ca9d" />
+                                </LineChart>
+                            </ResponsiveContainer>
+                        </div>
+                    </td>
+                </tr>
+            </Table>
         </>
     )
 
