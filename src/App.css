@@ -142,3 +142,8 @@ p.lead{
   font-weight: bold;
   padding: 10px;
 }
+
+.table-responsive,.table{
+  display: flex;
+  overflow: auto;
+}
