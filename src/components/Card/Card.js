@@ -2,7 +2,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { Fragment} from "react";
 import {Card as BootstrapCard, Row, Col,Button } from "react-bootstrap"
 import { faAngleDown, faAngleUp,faStar } from "@fortawesome/free-solid-svg-icons"
-import {Link, useHistory, useLocation, useNavigate} from "react-router-dom";
+import {Link} from "react-router-dom";
 
 
 function Change({ el }) {
@@ -24,8 +24,8 @@ export default function Card({ el, fevrateCards}) {
     return (
         <Fragment>
             <BootstrapCard className="m-2" >
-                <BootstrapCard.Header style={{
-                    background: `#${el.currency1.color}`,
+                <BootstrapCard.Header  style={{
+                    background: `#${el.currency1.color ? el.currency1.color : '#1a1a1a'}`,
                 }}>
                     <div className="text-center">
                         <img src={el.currency1.image} width={100} height={"auto"} />

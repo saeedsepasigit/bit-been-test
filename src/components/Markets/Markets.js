@@ -65,7 +65,7 @@ export default function Markets() {
             })
 
         } else {
-            
+
             let now = new Date()
             let time = now.getTime()
             let expiredTime = parseFloat(time + 1000 * 36000)
@@ -129,11 +129,11 @@ export default function Markets() {
                             <h6><b>مارکت های مورد علاقه</b></h6>
                         </header> */}
                         <Row>
-                            {storedCookies.length > 0 && storedCookies.map((el,index)=> {
+                            {storedCookies.length > 0 && storedCookies.map((el, index) => {
                                 return (
                                     <Fragment>
-                                        <Col lg={3}>
-                                            <Card el={el} key={`${el.title} + ${index}`} fevrateCards={el => getFeverateCards(el)} />
+                                        <Col lg={3} >
+                                            <Card el={el} key={Math.random(32).toString(32)} fevrateCards={el => getFeverateCards(el)} />
                                         </Col>
                                     </Fragment>
                                 )
@@ -150,23 +150,30 @@ export default function Markets() {
                     {Object.keys(markets).length > 0 && markets.results.map((el, index) => {
                         return (
                             <Fragment>
-                                <Col lg={3}>
-                                    <Card el={el} key={`${el.title} + ${index}`} fevrateCards={el => getFeverateCards(el)} />
+                                <Col lg={3} >
+                                    <Card el={el} key={Math.random(32).toString(32)} fevrateCards={el => getFeverateCards(el)} />
                                 </Col>
                             </Fragment>
                         )
                     })}
                 </Row>
 
-                <div className="pagination">
-                    <a type="button" className="prev" onClick={e => prevePage(e)}>
-                        <FontAwesomeIcon icon={faAngleRight} />
-                    </a>
+                {
+                    Object.keys(markets).length > 0 ?
+                        (
+                            <>
+                                <div className="pagination">
+                                    <a type="button" className="prev" onClick={e => prevePage(e)}>
+                                        <FontAwesomeIcon icon={faAngleRight} />
+                                    </a>
 
-                    <a type="button" className="next" onClick={e => nextPage(e)}>
-                        <FontAwesomeIcon icon={faAngleLeft} />
-                    </a>
-                </div>
+                                    <a type="button" className="next" onClick={e => nextPage(e)}>
+                                        <FontAwesomeIcon icon={faAngleLeft} />
+                                    </a>
+                                </div>
+                            </>
+                        ) : ''
+                }
             </div>
         </Fragment>
     )
