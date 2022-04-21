@@ -24,6 +24,7 @@ html,body{
   background-color: rgb(233, 233, 233);
   font-size: 22px;
   transition: transform ease 0.3s; 
+  border: none;
 }
 
 .next{

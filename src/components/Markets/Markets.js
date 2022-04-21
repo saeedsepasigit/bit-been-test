@@ -22,8 +22,13 @@ export default function Markets() {
 
     let storedCookies = Object.assign([], Object.values(cookies))
 
+    
     useEffect(() => {
-        getApiData()
+        axios.get(url).then(response => {
+            if (response.status === 200) {
+                setMarkets({ ...response.data })
+            }
+        })
     }, [faverate, url])
 
 
@@ -83,17 +88,6 @@ export default function Markets() {
         }
 
         window.scrollTo(0, 0)
-    }
-
-
-
-    const getApiData = () => {
-
-        axios.get(url).then(response => {
-            if (response.status === 200) {
-                setMarkets({ ...response.data })
-            }
-        })
     }
 
 
@@ -158,13 +152,13 @@ export default function Markets() {
                         (
                             <>
                                 <div className="pagination">
-                                    <a type="button" className="prev" onClick={e => prevePage(e)}>
+                                    <button type="button" className="prev" onClick={e => prevePage(e)}>
                                         <FontAwesomeIcon icon={faAngleRight} />
-                                    </a>
+                                    </button>
 
-                                    <a type="button" className="next" onClick={e => nextPage(e)}>
+                                    <button type="button" className="next" onClick={e => nextPage(e)}>
                                         <FontAwesomeIcon icon={faAngleLeft} />
-                                    </a>
+                                    </button>
                                 </div>
                             </>
                         ) : ''

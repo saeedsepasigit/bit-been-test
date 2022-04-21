@@ -26,27 +26,29 @@ export default function ChartDiagram({ chartData }) {
     const render = (
         <>
             <Table responsive dir="rtl">
-                <tr>
-                    <td>
-                        <div style={{
-                            display : "flex"
-                        }}>
-                            <ResponsiveContainer width={680} height={270} >
-                                <LineChart data={data} margin={{
-                                    left : 0
-                                }}>
-                                    <CartesianGrid strokeDasharray={"3 3"} />
-                                    <XAxis dataKey={"time"} />
-                                    <YAxis dataKey={"price"} />
-                                    <Tooltip />
-                                    <Legend />
-                                    <Line type={"monotone"} dataKey={"price"} stroke="#8884d8" />
-                                    <Line type={"monotone"} dataKey={"time"} stroke="#82ca9d" />
-                                </LineChart>
-                            </ResponsiveContainer>
-                        </div>
-                    </td>
-                </tr>
+                <tbody>
+                    <tr>
+                        <td>
+                            <div style={{
+                                display: "flex"
+                            }}>
+                                <ResponsiveContainer width={680} height={270} >
+                                    <LineChart data={data} margin={{
+                                        left: 0
+                                    }}>
+                                        <CartesianGrid strokeDasharray={"3 3"} />
+                                        <XAxis dataKey={"time"} />
+                                        <YAxis dataKey={"price"} />
+                                        <Tooltip />
+                                        <Legend />
+                                        <Line type={"monotone"} dataKey={"price"} stroke="#8884d8" />
+                                        <Line type={"monotone"} dataKey={"time"} stroke="#82ca9d" />
+                                    </LineChart>
+                                </ResponsiveContainer>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
             </Table>
         </>
     )
