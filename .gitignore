@@ -9,6 +9,10 @@
 /coverage
 
 # production
+<<<<<<< HEAD
+=======
+
+>>>>>>> 244a3478d00b2135fbb00fd55467b9172f15c4f3
 # misc
 .DS_Store
 .env.local
