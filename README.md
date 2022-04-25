@@ -6,7 +6,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
     git clone https://github.com/zanko-khaledi/bit-been-test.git
 
 # Install dependencies 
-    npm isntall
+    npm install
 
 # Runing the server eg :
    for runing server and install dependencies, nodejs version required  ^16.14.2 
